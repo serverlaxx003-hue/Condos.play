@@ -1,63 +1,258 @@
+
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Condos_Id</title>
-  <style>
-    :root { color-scheme: dark; --bg:#0e1015; --panel:#171a22; --text:#f4f5f7; --muted:#9ca3af; --accent:#7c5cff; }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); }
-    header { padding:28px 18px 20px; background:linear-gradient(135deg,#191b27,#11131a); border-bottom:1px solid #292d38; }
-    .wrap { width: 100%; max-width: none; margin: 0; }
-    .brand { font-size:clamp(24px,4vw,36px); font-weight:850; letter-spacing:-.8px; }
-    .subtitle { margin-top:7px; color:var(--muted); font-size:14px; }
-    main { padding: 0; }
-    .section-title { font-size:18px; font-weight:750; margin:0 0 16px; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 20px; width: 100%; }
-    .card { display:block; color:inherit; text-decoration:none; background:var(--panel); border:1px solid #292d38; border-radius:13px; overflow:hidden; transition:transform .16s,border-color .16s; }
-    .card:hover,.card:focus-visible { transform:translateY(-3px); border-color:var(--accent); outline:none; }
-    .thumb { width: 100%; aspect-ratio: 16 / 9; position: relative; overflow: hidden; background: #242838; }
-    .thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#34315c,#202c45); font-size:36px; font-weight:900; }
-    .info { padding:12px 13px 14px; }
-    .title { font-size:15px; font-weight:750; line-height:1.3; }
-    .tag { color:var(--muted); font-size:12px; margin-top:6px; }
-    footer { text-align:center; padding:18px; color:var(--muted); font-size:12px; border-top:1px solid #242833; }
-    @media(max-width:850px) { .grid { grid-template-columns:1fr; gap:12px; } }
-    @media(max-width:580px) { header { padding-top:22px; } .grid { grid-template-columns:1fr; gap:10px; } .info { padding:10px; } .title { font-size:14px; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Condos_Id</title>
+
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #100713;
+  --panel: #1b1020;
+  --text: #fff0fc;
+  --muted: #c5a5c1;
+  --accent: #ff3bd4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(ellipse at top, #35102f 0%, #100713 55%);
+  color: var(--text);
+}
+
+header {
+  padding: 28px 18px 20px;
+  background: linear-gradient(135deg, #35102f, #160b20, #260d2b);
+  border-bottom: 1px solid #78245f;
+  box-shadow: 0 5px 25px #ff3bd415;
+}
+
+.wrap {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.brand {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 850;
+  letter-spacing: -0.8px;
+  color: #ff7ce8;
+  text-shadow: 0 0 12px #ff3bd477, 0 0 30px #ff3bd444;
+}
+
+.subtitle {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+main {
+  padding: 0;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 750;
+  margin: 20px 14px 16px;
+  color: #ffe0fa;
+  text-shadow: 0 0 10px #ff3bd433;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 35px;
+  width: 100%;
+  padding: 0 18px;
+}
+
+.card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient(145deg, #211226, #170d1b);
+  border: 1px solid #48213f;
+  border-radius: 13px;
+  overflow: hidden;
+  transition: transform .16s, border-color .16s, box-shadow .16s;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 0 18px #ff3bd433, 0 0 35px #ff3bd411;
+  outline: none;
+}
+
+.thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+  background: #26102b;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff36c7, #8b2bff, #25102f);
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.info {
+  padding: 16px;
+  background: linear-gradient(135deg, #211226, #180d1d);
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 850;
+  line-height: 1.4;
+  color: #ff8be8;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #ff3bd455;
+}
+
+.tag {
+  color: #c5a5c1;
+  font-size: 12px;
+  margin-top: 8px;
+  letter-spacing: 0.4px;
+}
+
+footer {
+  text-align: center;
+  padding: 18px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid #48213f;
+  margin-top: 20px;
+}
+
+@media(max-width: 850px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media(max-width: 580px) {
+  header {
+    padding-top: 22px;
+  }
+
+  .grid {
+  grid-template-columns: 1fr;
+  gap: 35px;
+  padding: 0 18px;
+}
+
+  .info {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <header><div class="wrap">
+
+<header>
+  <div class="wrap">
     <div class="brand">CONDO ID</div>
-    <div class="subtitle">A curated collection of private worlds.
-Choose your destination.</div>
-  </div></header>
-  <main class="wrap">
-    <h1 class="section-title">The Best Games</h1>
-    <div class="grid">
-      <!-- KARTU 1 -->
-      <a class="card" href="https://roblox.com.ms/games/121948669846036/sword-fight-on-a-baseplate?privateServerLinkCode=65085889075043345290342612584775" target="_blank" rel="noopener noreferrer">
-        <div class="thumb"><img src="thumb-1.jpg" alt="Thumbnail"></div>
-        <div class="info"><div class="title">Game 1</div><div class="tag">Klik untuk membuka</div></div>
-      </a>
-      <!-- KARTU 2 -->
-      <a class="card" href="https://roblox.com.ms/games/121948669846036/sword-fight-on-a-baseplate?privateServerLinkCode=65085889075043345290342612584775" target="_blank" rel="noopener noreferrer">
-        <div class="thumb"><img src="thumb-2.jpg" alt="Thumbnail"></div>
-          <div class="placeholder" style="display:none">02</div>
-        </div>
-        <div class="info"><div class="title">Game 2</div><div class="tag">Klik untuk membuka</div></div>
-      </a>
-      <!-- KARTU 3 -->
-      <a class="card" href="https://roblox.com.ms/games/121948669846036/sword-fight-on-a-baseplate?privateServerLinkCode=65085889075043345290342612584775" rel="noopener noreferrer">
-        <div class="thumb"><img src="thumb-3.jpg" alt="Thumbnail"></div>
-          <div class="placeholder" style="display:none">03</div>
-        </div>
-        <div class="info"><div class="title">Game 3</div><div class="tag">Klik untuk membuka</div></div>
-      </a>
+    <div class="subtitle">
+      A curated collection of private worlds.<br>
+      Choose your destination.
     </div>
-  </main>
-  <footer>Game Links • PRIVATE WORLDS / PUBLIC ACCESS</footer>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1 class="section-title">The Best Games</h1>
+
+  <div class="grid">
+
+    <!-- KARTU 1 -->
+    <a class="card"
+       href="https://www.roblox.com.ml/games/121948669846036/sword-fight-on-a-baseplate?privateServerLinkCode=416238415159388471880206876507"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="thumb">
+        <img src="thumb-1.jpg" alt="Thumbnail Game 1">
+      </div>
+
+      <div class="info">
+        <div class="title">Game 1</div>
+        <div class="tag">Klik untuk membuka</div>
+      </div>
+    </a>
+
+    <!-- KARTU 2 -->
+    <a class="card"
+       href="https://www.roblox.com.ml/games/121948669846036/sword-fight-on-a-baseplate?privateServerLinkCode=416238415159388471880206876507"
+       target="_blank"
+       rel="noopener noreferrer">
+
+      <div class="thumb">
+        <img src="thumb-2.jpg" alt="Thumbnail Game 2">
+        <div class="placeholder" style="display:none">02</div>
+      </div>
+
+      <div class="info">
+        <div class="title">Game 2</div>
+        <div class="tag">Klik untuk membuka</div>
+      </div>
+    </a>
+
+    <!-- KARTU 3 -->
+    <a class="card"
+       href="https://www.roblox.com.ml/games/121948669846036/sword-fight-on-a-baseplate?privateServerLinkCode=416238415159388471880206876507"
+       rel="noopener noreferrer">
+
+      <div class="thumb">
+        <img src="thumb-3.jpg" alt="Thumbnail Game 3">
+        <div class="placeholder" style="display:none">03</div>
+      </div>
+
+      <div class="info">
+        <div class="title">Game 3</div>
+        <div class="tag">Klik untuk membuka</div>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<footer>
+  Game Links • PRIVATE WORLDS / PUBLIC ACCESS
+</footer>
+
 </body>
 </html>
